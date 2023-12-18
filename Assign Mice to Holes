@@ -1,0 +1,23 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int miceh(int mice[], int hole[]) {
+    sort(mice, mice + sizeof(mice) / sizeof(mice[0])); 
+    sort(hole, hole + sizeof(hole) / sizeof(hole[0])); 
+
+    int minn = 0;
+    for (int i = 0; i < sizeof(mice) / sizeof(mice[0]); i++) { 
+            minn = max(minn, abs(mice[i] - hole[i]));
+    }
+    return minn;
+}
+
+int main() {
+    int a[] = {3, -4, 2};  
+    int b[] = {4, 0, -2 };  
+    int c = miceh(a, b);
+    cout << c;
+
+    return 0;
+}
